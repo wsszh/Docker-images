@@ -90,7 +90,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libevent-2.0-5 \
       libsasl2-2 \
     && rm -rf /var/lib/apt/lists/*
-RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
+      ln -s /usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 USER memcache
