@@ -84,8 +84,8 @@ COPY --from=prometheus-builder /memcached_exporter/vendor/github.com/alecthomas/
 COPY --from=prometheus-builder /memcached_exporter/vendor/gopkg.in/alecthomas/kingpin.v2/COPYING /opt/memcached_exporter/COPYING.kingpin.v2.alecthomas
 
 RUN apt-get update && apt-get install wget -y
-RUN wget https://raw.githubusercontent.com/wsszh/Docker-images/master/memcached/v1.5/docker-entrypoint.sh
-COPY docker-entrypoint.sh /usr/local/bin/
+RUN cd /usr/local/bin/ && \
+      wget https://raw.githubusercontent.com/wsszh/Docker-images/master/memcached/v1.5/docker-entrypoint.sh
 RUN apt-get update && apt-get install -y --no-install-recommends \
       libevent-2.0-5 \
       libsasl2-2 \
