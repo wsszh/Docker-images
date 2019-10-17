@@ -1,1 +1,1 @@
-FROM marketplace.gcr.io/google/memcached1:1.5
+FROM gcr.io/cloud-marketplace/google/memcached1:1.5
