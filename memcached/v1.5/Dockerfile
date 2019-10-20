@@ -91,7 +91,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libsasl2-2 \
     && rm -rf /var/lib/apt/lists/*
 RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
-      ln -s /usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+    && ln -s /usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 USER memcache
